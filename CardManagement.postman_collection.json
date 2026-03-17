@@ -1,0 +1,443 @@
+{
+  "info": {
+    "_postman_id": "9e6af61c-4ed2-4196-a663-8e8d13c77c83",
+    "name": "CardManagement",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "25372983"
+  },
+  "item": [
+    {
+      "name": "customer",
+      "item": [
+        {
+          "name": "get All Customer",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/customer/all?page=0&size=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "customer",
+                "all"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "create Customer",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"mus\",\n  \"email\": \"mus@gumuTutu.com\",\n  \"phone\": \"+60175653952\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/customer/create",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "customer",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update Customer",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": \"e0e9d09b-2eed-4969-a5ee-82fc2bd0f78c\",\n    \"name\": \"muss\",\n    \"email\": \"mus@gumuTutu.com\",\n    \"phone\": \"+60175653952\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/customer/update",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "customer",
+                "update"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete Customer",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/customer/delete/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "customer",
+                "delete",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "5f8daa9d-7c4f-da85-3afb-89d9f2ed7c93"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "item": [
+        {
+          "name": "get All Card",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/card/all?page=0&size=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "card",
+                "all"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get All Card By Customer Id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/card/customer/:id?page=0&size=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "card",
+                "customer",
+                ":id"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                },
+                {
+                  "key": "sort",
+                  "value": "string,string",
+                  "disabled": true
+                }
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "e0e9d09b-2eed-4969-a5ee-82fc2bd0f78c"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get Card By Card Number",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/card/number/:cardNumber",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "card",
+                "number",
+                ":cardNumber"
+              ],
+              "variable": [
+                {
+                  "key": "cardNumber",
+                  "value": "1122322309232123"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get Card Limit By Card Number",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/card/limit/:cardNumber",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "card",
+                "limit",
+                ":cardNumber"
+              ],
+              "variable": [
+                {
+                  "key": "cardNumber",
+                  "value": "1122322309232123"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "create Card",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cardNumber\": \"1122322309232123\",\n  \"customerId\": \"e0e9d09b-2eed-4969-a5ee-82fc2bd0f78c\",\n  \"status\": \"ACTIVE\",\n  \"cardType\": \"DEBIT\",\n  \"expiryTime\": \"2030-07-17T15:04:49.065Z\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/card/create",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "card",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update Card",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": \"6fcd3faf-e7fe-4816-9dab-be4f016e23bc\",\n    \"cardNumber\": \"1122322309232123\",\n    \"customerId\": \"e0e9d09b-2eed-4969-a5ee-82fc2bd0f78c\",\n    \"status\": \"ACTIVE\",\n    \"cardType\": \"DEBIT\",\n    \"expiryTime\": \"2030-07-17T15:04:49.065Z\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/card/update",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "card",
+                "update"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update Card Limit",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"cardId\": \"6fcd3faf-e7fe-4816-9dab-be4f016e23bc\",\n    \"dailyLimit\": 1500,\n    \"dailyLimitCurrency\": \"MYR\",\n    \"usedToday\": 0\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/card/update/limit",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "card",
+                "update",
+                "limit"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete Card",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/card/delete/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "card",
+                "delete",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "5f8daa9d-7c4f-da85-3afb-89d9f2ed7c93"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8083/api"
+    }
+  ]
+}
