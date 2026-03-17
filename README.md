@@ -25,7 +25,7 @@ Enterprise Developer Edition (64-bit) on Linux (Ubuntu 24.04.4 LTS) <X64>
 ```
 
 
-## JUST CLICK THIS TO SETUP DB(for windows using docker in IntelliJ) or JUST RUN IN POWERSHELL THIS TO SETUP DB(for windows using powershell)
+## JUST CLICK THIS TO SETUP DB(for windows in IntelliJ) or JUST RUN IN POWERSHELL THIS TO SETUP DB(for windows in powershell)
 ```bash
 & ".\db-docker-local-init.bat"
 ```
