@@ -5,7 +5,8 @@ REM -----------------------------
 
 SET "SA_PASSWORD=uHuHGn1t$3T"
 SET "CONTAINER_NAME=mssql-local"
-SET "SQL_DIR_HOST=C:\Users\User\Downloads\Career Growth & Salary Increment\Maybank\card-management"
+cd /d %~dp0
+SET "SQL_DIR_HOST=%CD%"
 
 SET "INIT_SQL=init.sql"
 SET "TABLES_SQL=tables-init.sql"

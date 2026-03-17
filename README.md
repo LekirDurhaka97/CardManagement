@@ -23,13 +23,13 @@ Feb 25 2026 20:54:27
 Copyright (C) 2025 Microsoft Corporation
 Enterprise Developer Edition (64-bit) on Linux (Ubuntu 24.04.4 LTS) <X64>
 ```
-Then it run the container, init.sql, and table-init.sql
 
 
 ## JUST CLICK THIS TO SETUP DB(for windows using docker in IntelliJ) or JUST RUN IN POWERSHELL THIS TO SETUP DB(for windows using powershell)
 ```bash
 & ".\db-docker-local-init.bat"
 ```
+It will auto run the container, ```init.sql```, and ```table-init.sql```, creating necessary database, user, schema, tables.
 
 
 ## Usage
