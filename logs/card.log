@@ -4214,3 +4214,123 @@ com.microsoft.sqlserver.jdbc.SQLServerException: The TCP/IP connection to the ho
 
 2026-03-17T13:44:06.021+08:00  WARN 7560 --- [card-management] [HikariPool-1:connection-adder] c.m.s.j.internals.SQLServerConnection    : ConnectionID:49 ClientConnectionId: cb1e3e78-356e-4c0d-97da-3c5c82a82909 Prelogin error: host localhost port 1433 Unexpected end of prelogin response after 0 bytes read
 2026-03-17T13:44:06.024+08:00  WARN 7560 --- [card-management] [HikariPool-1:connection-adder] c.m.s.j.internals.SQLServerConnection    : ConnectionID:49 ClientConnectionId: 5802e735-40b0-4b1f-bfea-329d430a02a2 Prelogin error: host localhost port 1433 Unexpected end of prelogin response after 0 bytes read
+2026-03-17T14:40:25.683+08:00  INFO 7964 --- [card-management] [restartedMain] c.c.CardManagementApplication            : Starting CardManagementApplication using Java 21.0.10 with PID 7964 (C:\Users\User\Downloads\Career Growth & Salary Increment\Maybank\CardManagement\target\classes started by User in C:\Users\User\Downloads\Career Growth & Salary Increment\Maybank\CardManagement)
+2026-03-17T14:40:25.686+08:00  INFO 7964 --- [card-management] [restartedMain] c.c.CardManagementApplication            : No active profile set, falling back to 1 default profile: "default"
+2026-03-17T14:40:25.728+08:00  INFO 7964 --- [card-management] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-03-17T14:40:25.728+08:00  INFO 7964 --- [card-management] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-03-17T14:40:26.466+08:00  INFO 7964 --- [card-management] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-17T14:40:26.601+08:00  INFO 7964 --- [card-management] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 126 ms. Found 3 JPA repository interfaces.
+2026-03-17T14:40:27.130+08:00  INFO 7964 --- [card-management] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8083 (http)
+2026-03-17T14:40:27.144+08:00  INFO 7964 --- [card-management] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-17T14:40:27.145+08:00  INFO 7964 --- [card-management] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-03-17T14:40:27.244+08:00  INFO 7964 --- [card-management] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1516 ms
+2026-03-17T14:40:27.465+08:00  INFO 7964 --- [card-management] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-17T14:40:27.536+08:00  INFO 7964 --- [card-management] [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.4.Final
+2026-03-17T14:40:28.013+08:00  INFO 7964 --- [card-management] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-17T14:40:28.044+08:00  INFO 7964 --- [card-management] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-17T14:40:28.434+08:00  INFO 7964 --- [card-management] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection ConnectionID:1 ClientConnectionId: 60ebdde5-3ce3-4e9e-a4d7-6afaf2052d62
+2026-03-17T14:40:28.436+08:00  INFO 7964 --- [card-management] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-17T14:40:28.489+08:00  WARN 7964 --- [card-management] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-17T14:40:28.507+08:00  INFO 7964 --- [card-management] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:sqlserver://localhost:1433;concatNullYieldsNull=ON;quotedIdentifier=ON;connectRetryInterval=10;connectRetryCount=1;maxResultBuffer=-1;sendTemporalDataTypesAsStringForBulkCopy=true;delayLoadingLobs=true;useFmtOnly=false;vectorTypeSupport=v1;cacheBulkCopyMetadata=false;bulkCopyForBatchInsertAllowEncryptedValueModifications=false;bulkCopyForBatchInsertTableLock=false;bulkCopyForBatchInsertKeepNulls=false;bulkCopyForBatchInsertKeepIdentity=false;bulkCopyForBatchInsertFireTriggers=false;bulkCopyForBatchInsertCheckConstraints=false;bulkCopyForBatchInsertBatchSize=0;useBulkCopyForBatchInsert=false;cancelQueryTimeout=-1;sslProtocol=TLS;calcBigDecimalPrecision=false;useDefaultJaasConfig=false;jaasConfigurationName=SQLJDBCDriver;statementPoolingCacheSize=0;serverPreparedStatementDiscardThreshold=10;enablePrepareOnFirstPreparedStatementCall=false;fips=false;socketTimeout=0;authentication=NotSpecified;authenticationScheme=nativeAuthentication;xopenStates=false;datetimeParameterType=datetime2;sendTimeAsDatetime=true;replication=false;trustStoreType=JKS;trustServerCertificate=false;TransparentNetworkIPResolution=true;iPAddressPreference=IPv4First;serverNameAsACE=false;sendStringParametersAsUnicode=true;selectMethod=direct;responseBuffering=adaptive;queryTimeout=-1;packetSize=8000;multiSubnetFailover=false;loginTimeout=30;lockTimeout=-1;lastUpdateCount=true;useDefaultGSSCredential=false;prepareMethod=prepexec;encrypt=false;disableStatementPooling=true;databaseName=TESTDB;columnEncryptionSetting=Disabled;applicationName=Microsoft JDBC Driver for SQL Server;applicationIntent=readwrite;]
+	Database driver: Microsoft JDBC Driver 13.2 for SQL Server
+	Database dialect: SQLServerDialect
+	Database version: 17.0
+	Default catalog/schema: TESTDB/dbo
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 128
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-17T14:40:29.299+08:00  INFO 7964 --- [card-management] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-17T14:40:29.644+08:00 DEBUG 7964 --- [card-management] [restartedMain] org.hibernate.SQL                        : 
+    alter table card.card 
+       alter column card_number varchar(255)
+2026-03-17T14:40:29.650+08:00 DEBUG 7964 --- [card-management] [restartedMain] org.hibernate.SQL                        : 
+    alter table card.card 
+       alter column card_type varchar(255)
+2026-03-17T14:40:29.654+08:00 DEBUG 7964 --- [card-management] [restartedMain] org.hibernate.SQL                        : 
+    alter table card.card 
+       alter column status varchar(255)
+2026-03-17T14:40:29.657+08:00 DEBUG 7964 --- [card-management] [restartedMain] org.hibernate.SQL                        : 
+    alter table card.card_limit 
+       alter column daily_limit_currency varchar(255)
+2026-03-17T14:40:29.661+08:00 DEBUG 7964 --- [card-management] [restartedMain] org.hibernate.SQL                        : 
+    alter table card.customer 
+       alter column phone varchar(255)
+2026-03-17T14:40:29.791+08:00  INFO 7964 --- [card-management] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-17T14:40:29.871+08:00  INFO 7964 --- [card-management] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-17T14:40:32.313+08:00  WARN 7964 --- [card-management] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-17T14:40:32.705+08:00  INFO 7964 --- [card-management] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8083 (http) with context path '/api'
+2026-03-17T14:40:32.713+08:00  INFO 7964 --- [card-management] [restartedMain] c.c.CardManagementApplication            : Started CardManagementApplication in 7.413 seconds (process running for 8.628)
+2026-03-17T14:40:32.716+08:00  WARN 7964 --- [card-management] [restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-03-17T14:40:32.717+08:00  WARN 7964 --- [card-management] [restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-03-17T14:40:55.839+08:00  INFO 7964 --- [card-management] [http-nio-8083-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-17T14:40:55.839+08:00  INFO 7964 --- [card-management] [http-nio-8083-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-03-17T14:40:55.840+08:00  INFO 7964 --- [card-management] [http-nio-8083-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-03-17T14:40:55.871+08:00  INFO 7964 --- [card-management] [http-nio-8083-exec-3] c.c.controller.CardController            : Request: GET /api/card/all
+2026-03-17T14:40:55.998+08:00 DEBUG 7964 --- [card-management] [http-nio-8083-exec-3] org.hibernate.SQL                        : 
+    select
+        c1_0.id,
+        c1_0.card_number,
+        c1_0.card_type,
+        c1_0.created_by,
+        c1_0.created_time,
+        c1_0.customer_id,
+        c1_0.expiry_time,
+        c1_0.modified_by,
+        c1_0.modified_time,
+        c1_0.status 
+    from
+        card.card c1_0 
+    order by
+        (select
+            0) 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+2026-03-17T14:40:56.024+08:00  INFO 7964 --- [card-management] [http-nio-8083-exec-3] c.c.controller.CardController            : Response: []
+2026-03-17T14:43:30.472+08:00  INFO 7964 --- [card-management] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-17T14:43:30.477+08:00  INFO 7964 --- [card-management] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-03-17T14:43:30.491+08:00  INFO 7964 --- [card-management] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-17T14:43:30.493+08:00  INFO 7964 --- [card-management] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-03-17T14:43:30.495+08:00  INFO 7964 --- [card-management] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-03-17T14:43:33.252+08:00  INFO 4680 --- [card-management] [restartedMain] c.c.CardManagementApplication            : Starting CardManagementApplication using Java 21.0.10 with PID 4680 (C:\Users\User\Downloads\Career Growth & Salary Increment\Maybank\CardManagement\target\classes started by User in C:\Users\User\Downloads\Career Growth & Salary Increment\Maybank\CardManagement)
+2026-03-17T14:43:33.255+08:00  INFO 4680 --- [card-management] [restartedMain] c.c.CardManagementApplication            : No active profile set, falling back to 1 default profile: "default"
+2026-03-17T14:43:33.289+08:00  INFO 4680 --- [card-management] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-03-17T14:43:33.290+08:00  INFO 4680 --- [card-management] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-03-17T14:43:33.925+08:00  INFO 4680 --- [card-management] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-17T14:43:34.041+08:00  INFO 4680 --- [card-management] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 109 ms. Found 3 JPA repository interfaces.
+2026-03-17T14:43:34.499+08:00  INFO 4680 --- [card-management] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8083 (http)
+2026-03-17T14:43:34.509+08:00  INFO 4680 --- [card-management] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-17T14:43:34.510+08:00  INFO 4680 --- [card-management] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-03-17T14:43:34.551+08:00  INFO 4680 --- [card-management] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1261 ms
+2026-03-17T14:43:34.705+08:00  INFO 4680 --- [card-management] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-17T14:43:34.747+08:00  INFO 4680 --- [card-management] [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.4.Final
+2026-03-17T14:43:35.095+08:00  INFO 4680 --- [card-management] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-17T14:43:35.118+08:00  INFO 4680 --- [card-management] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-17T14:43:35.373+08:00  INFO 4680 --- [card-management] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection ConnectionID:1 ClientConnectionId: f7a3136d-7a4a-475e-9eea-390635e88e77
+2026-03-17T14:43:35.374+08:00  INFO 4680 --- [card-management] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-17T14:43:35.398+08:00  WARN 4680 --- [card-management] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-17T14:43:35.413+08:00  INFO 4680 --- [card-management] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:sqlserver://localhost:1433;concatNullYieldsNull=ON;quotedIdentifier=ON;connectRetryInterval=10;connectRetryCount=1;maxResultBuffer=-1;sendTemporalDataTypesAsStringForBulkCopy=true;delayLoadingLobs=true;useFmtOnly=false;vectorTypeSupport=v1;cacheBulkCopyMetadata=false;bulkCopyForBatchInsertAllowEncryptedValueModifications=false;bulkCopyForBatchInsertTableLock=false;bulkCopyForBatchInsertKeepNulls=false;bulkCopyForBatchInsertKeepIdentity=false;bulkCopyForBatchInsertFireTriggers=false;bulkCopyForBatchInsertCheckConstraints=false;bulkCopyForBatchInsertBatchSize=0;useBulkCopyForBatchInsert=false;cancelQueryTimeout=-1;sslProtocol=TLS;calcBigDecimalPrecision=false;useDefaultJaasConfig=false;jaasConfigurationName=SQLJDBCDriver;statementPoolingCacheSize=0;serverPreparedStatementDiscardThreshold=10;enablePrepareOnFirstPreparedStatementCall=false;fips=false;socketTimeout=0;authentication=NotSpecified;authenticationScheme=nativeAuthentication;xopenStates=false;datetimeParameterType=datetime2;sendTimeAsDatetime=true;replication=false;trustStoreType=JKS;trustServerCertificate=false;TransparentNetworkIPResolution=true;iPAddressPreference=IPv4First;serverNameAsACE=false;sendStringParametersAsUnicode=true;selectMethod=direct;responseBuffering=adaptive;queryTimeout=-1;packetSize=8000;multiSubnetFailover=false;loginTimeout=30;lockTimeout=-1;lastUpdateCount=true;useDefaultGSSCredential=false;prepareMethod=prepexec;encrypt=false;disableStatementPooling=true;databaseName=TESTDB;columnEncryptionSetting=Disabled;applicationName=Microsoft JDBC Driver for SQL Server;applicationIntent=readwrite;]
+	Database driver: Microsoft JDBC Driver 13.2 for SQL Server
+	Database dialect: SQLServerDialect
+	Database version: 17.0
+	Default catalog/schema: TESTDB/dbo
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 128
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-17T14:43:36.125+08:00  INFO 4680 --- [card-management] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-17T14:43:36.325+08:00  INFO 4680 --- [card-management] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-17T14:43:36.401+08:00  INFO 4680 --- [card-management] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-17T14:43:38.756+08:00  WARN 4680 --- [card-management] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-17T14:43:39.139+08:00  INFO 4680 --- [card-management] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8083 (http) with context path '/api'
+2026-03-17T14:43:39.148+08:00  INFO 4680 --- [card-management] [restartedMain] c.c.CardManagementApplication            : Started CardManagementApplication in 6.228 seconds (process running for 6.71)
+2026-03-17T14:43:39.150+08:00  WARN 4680 --- [card-management] [restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-03-17T14:43:39.151+08:00  WARN 4680 --- [card-management] [restartedMain] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'

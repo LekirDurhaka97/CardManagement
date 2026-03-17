@@ -37,3 +37,7 @@ Just import ```CardManagement.postman_collection.json``` into postman, then its 
 
 There's a swagger also after the app run:
 http://localhost:8083/api/swagger-ui/index.html#/
+
+
+## Log
+The log output on ```logs/card.log```

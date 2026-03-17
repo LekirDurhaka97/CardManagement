@@ -152,6 +152,29 @@
       "name": "card",
       "item": [
         {
+          "name": "All Countries With Currencies",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/card/AllCountriesWithCurrencies",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "card",
+                "AllCountriesWithCurrencies"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
           "name": "get All Card",
           "request": {
             "method": "GET",

@@ -2,8 +2,10 @@ package com.card_management.controller;
 
 import com.card_management.dto.card.CardDto;
 import com.card_management.dto.card.CardLimitDto;
+import com.card_management.dto.external.CountryDto;
 import com.card_management.service.card.CardService;
 import com.card_management.service.customer.CustomerService;
+import com.card_management.service.external.CountryService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,18 @@ public class CardController {
 
     @Autowired
     CustomerService customerService;
+
+    @Autowired
+    CountryService countryService;
+
+    //for lookup: for the FE to use
+    @GetMapping("/AllCountriesWithCurrencies")
+    public ResponseEntity<List<CountryDto>> getAllCountriesWithCurrencies(HttpServletRequest request) {
+        log.info("Request: {} {}", request.getMethod(), request.getRequestURI());
+        List<CountryDto> allCountriesWithCurrencies = countryService.getAllCountriesWithCurrencies();
+        log.info("Response: {}", allCountriesWithCurrencies);
+        return ResponseEntity.ok(allCountriesWithCurrencies);
+    }
 
     @GetMapping("/all")
     public ResponseEntity<List<CardDto>> getAllCard(HttpServletRequest request, Pageable pageable) {

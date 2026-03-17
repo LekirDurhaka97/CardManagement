@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class CountryServiceImpl {
+public class CountryServiceImpl implements CountryService{
 
     private final WebClient webClient;
 
@@ -26,6 +26,11 @@ public class CountryServiceImpl {
                 .bodyToFlux(CountryDto.class)
                 .collectList()
                 .block();
+    }
+
+    @Override
+    public List<CountryDto> getAllCountriesWithCurrencies() {
+        return countries;
     }
 
 }
