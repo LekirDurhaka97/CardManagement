@@ -1,8 +1,10 @@
 ## Disclaimer
 This application is not fully tailored to perfection because the assessment requirement is quite simple(don't want to over-engineer).
 
+
 ## Description
 This application is simple, created for Job Application Assessment(not fully cooked).
+
 
 ## Db Setup
 I use docker desktop on windows run under WSL2. 
@@ -24,10 +26,11 @@ Enterprise Developer Edition (64-bit) on Linux (Ubuntu 24.04.4 LTS) <X64>
 Then it run the container, init.sql, and table-init.sql
 
 
-## JUST CLICK THIS TO SETUP DB(for windows using docker)
+## JUST CLICK THIS TO SETUP DB(for windows using docker in IntelliJ) or JUST RUN IN POWERSHELL THIS TO SETUP DB(for windows using powershell)
 ```bash
 & ".\db-docker-local-init.bat"
 ```
+
 
 ## Usage
 Just import ```CardManagement.postman_collection.json``` into postman, then its self-explanatory
