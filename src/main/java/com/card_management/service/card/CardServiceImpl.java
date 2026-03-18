@@ -2,6 +2,7 @@ package com.card_management.service.card;
 
 import com.card_management.dto.card.CardDto;
 import com.card_management.dto.card.CardLimitDto;
+import com.card_management.exception.GeneralException;
 import com.card_management.mapper.CardMapper;
 import com.card_management.model.card.Card;
 import com.card_management.model.card.CardLimit;
@@ -42,25 +43,26 @@ public class CardServiceImpl implements CardService {
         return allCard.stream().map(card -> cardMapper.cardToDto(card)).toList();
     }
 
-    //TODO: should have use ControllerAdvice for global exception handling
     @Transactional(readOnly = true)
     public List<CardDto> getAllCardByCustomerId(UUID id, Pageable pageable) {
-        List<Card> allCardByCustomerId = customerRepository.findById(id).orElseThrow().getCards();
+        List<Card> allCardByCustomerId = customerRepository.findById(id)
+                .orElseThrow(() -> new GeneralException("Customer doesn't exist")).getCards();
         return allCardByCustomerId.stream().map(card -> cardMapper.cardToDto(card)).toList();
     }
 
-    //TODO: should have use ControllerAdvice for global exception handling
     @Transactional(readOnly = true)
     public CardDto getCardByCardNumber(String cardNumber) {
-        Card cardByCardNumber = cardRepository.findByCardNumber(cardNumber).orElseThrow();
+        Card cardByCardNumber = cardRepository.findByCardNumber(cardNumber)
+                .orElseThrow(() -> new GeneralException("Card doesn't exist"));
         return cardMapper.cardToDto(cardByCardNumber);
     }
 
-    //TODO: should have use ControllerAdvice for global exception handling
     @Transactional(readOnly = true)
     public CardLimitDto getCardLimitByCardNumber(String cardNumber) {
-        UUID cardId = cardRepository.findByCardNumber(cardNumber).orElseThrow().getId();
-        CardLimit cardLimit = cardLimitRepository.findById(cardId).orElseThrow();
+        UUID cardId = cardRepository.findByCardNumber(cardNumber)
+                .orElseThrow(() -> new GeneralException("Card doesn't exist")).getId();
+        CardLimit cardLimit = cardLimitRepository.findById(cardId)
+                .orElseThrow(() -> new GeneralException("Card Limit doesn't exist"));
         return cardMapper.cardLimitToDto(cardLimit);
     }
 
@@ -82,19 +84,16 @@ public class CardServiceImpl implements CardService {
         cardLimitRepository.save(cardLimit);
     }
 
-    //TODO: should have use ControllerAdvice for global exception handling
     @Transactional
     public void updateCard(CardDto dto) {
-        Optional<Card> cardOpt = cardRepository.findById(dto.id());
-        if (cardOpt.isPresent()) {
-            Card card = cardOpt.get();
-            card.setCardNumber(dto.cardNumber());
-            card.setCardType(dto.cardType());
-            card.setStatus(dto.status());
-            //TODO: can improve use the current session username - need to implement Spring Security and token access
-            card.setModifiedBy("system");
-            card.setModifiedTime(ZonedDateTime.now());
-        }
+        Card card = cardRepository.findById(dto.id())
+                .orElseThrow(() -> new GeneralException("Card doesn't exist"));
+        card.setCardNumber(dto.cardNumber());
+        card.setCardType(dto.cardType());
+        card.setStatus(dto.status());
+        //TODO: can improve use the current session username - need to implement Spring Security and token access
+        card.setModifiedBy("system");
+        card.setModifiedTime(ZonedDateTime.now());
     }
 
     public boolean cardExistById(UUID id) {
@@ -111,11 +110,11 @@ public class CardServiceImpl implements CardService {
         }
     }
 
-    //TODO: should have use ControllerAdvice for global exception handling
     @Transactional
     public void deleteCard(UUID id) {
         if(cardRepository.existsById(id))
             cardRepository.deleteById(id);
+        else throw new GeneralException("Card doesn't exist");
     }
 
 }

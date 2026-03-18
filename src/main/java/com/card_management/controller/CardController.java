@@ -3,10 +3,10 @@ package com.card_management.controller;
 import com.card_management.dto.card.CardDto;
 import com.card_management.dto.card.CardLimitDto;
 import com.card_management.dto.external.CountryDto;
+import com.card_management.exception.GeneralException;
 import com.card_management.service.card.CardService;
 import com.card_management.service.customer.CustomerService;
 import com.card_management.service.external.CountryService;
-import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -30,93 +30,60 @@ public class CardController {
     @Autowired
     CountryService countryService;
 
-    //for lookup: for the FE to use
+    //lookup: for the FE to use
     @GetMapping("/AllCountriesWithCurrencies")
-    public ResponseEntity<List<CountryDto>> getAllCountriesWithCurrencies(HttpServletRequest request) {
-        log.info("Request: {} {}", request.getMethod(), request.getRequestURI());
-        List<CountryDto> allCountriesWithCurrencies = countryService.getAllCountriesWithCurrencies();
-        log.info("Response: {}", allCountriesWithCurrencies);
-        return ResponseEntity.ok(allCountriesWithCurrencies);
+    public ResponseEntity<List<CountryDto>> getAllCountriesWithCurrencies() {
+        return ResponseEntity.ok(countryService.getAllCountriesWithCurrencies());
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<CardDto>> getAllCard(HttpServletRequest request, Pageable pageable) {
-        log.info("Request: {} {}", request.getMethod(), request.getRequestURI());
-        List<CardDto> cards = cardService.getAllCard(pageable);
-        log.info("Response: {}", cards);
-        return ResponseEntity.ok(cards);
+    public ResponseEntity<List<CardDto>> getAllCard(Pageable pageable) {
+        return ResponseEntity.ok(cardService.getAllCard(pageable));
     }
 
     @GetMapping("/customer/{id}")
-    public ResponseEntity<List<CardDto>> getAllCardByCustomerId(HttpServletRequest request, @PathVariable UUID id, Pageable pageable) {
-        log.info("Request: {} {}", request.getMethod(), request.getRequestURI());
-        List<CardDto> cards = cardService.getAllCardByCustomerId(id, pageable);
-        log.info("Response: {}", cards);
-        return ResponseEntity.ok(cards);
+    public ResponseEntity<List<CardDto>> getAllCardByCustomerId(@PathVariable UUID id, Pageable pageable) {
+        return ResponseEntity.ok(cardService.getAllCardByCustomerId(id, pageable));
     }
 
     @GetMapping("/number/{cardNumber}")
-    public ResponseEntity<CardDto> getCardByCardNumber(HttpServletRequest request, @PathVariable String cardNumber) {
-        log.info("Request: {} {}", request.getMethod(), request.getRequestURI());
-        CardDto card = cardService.getCardByCardNumber(cardNumber);
-        log.info("Response: {}", card);
-        return ResponseEntity.ok(card);
+    public ResponseEntity<CardDto> getCardByCardNumber(@PathVariable String cardNumber) {
+        return ResponseEntity.ok(cardService.getCardByCardNumber(cardNumber));
     }
 
     @GetMapping("/limit/{cardNumber}")
-    public ResponseEntity<CardLimitDto> getCardLimitByCardNumber(HttpServletRequest request, @PathVariable String cardNumber) {
-        log.info("Request: {} {}", request.getMethod(), request.getRequestURI());
-        CardLimitDto limit = cardService.getCardLimitByCardNumber(cardNumber);
-        log.info("Response: {}", limit);
-        return ResponseEntity.ok(limit);
+    public ResponseEntity<CardLimitDto> getCardLimitByCardNumber(@PathVariable String cardNumber) {
+        return ResponseEntity.ok(cardService.getCardLimitByCardNumber(cardNumber));
     }
 
     @PostMapping("/create")
-    public ResponseEntity<String> createCard(HttpServletRequest request, @RequestBody CardDto cardDto) {
-        log.info("Request: {} {} Body: {}", request.getMethod(), request.getRequestURI(), cardDto);
+    public ResponseEntity<String> createCard(@RequestBody CardDto cardDto) {
         boolean customerExists = customerService.customerExistById(cardDto.customerId());
-        ResponseEntity<String> response;
-        if (customerExists) {
-            cardService.createCard(cardDto);
-            response = ResponseEntity.ok("Card created successfully");
-        } else response = ResponseEntity.badRequest().body("Customer doesn't exist yet");
-        log.info("Response: {}", response.getBody());
-        return response;
+        if (!customerExists) throw new GeneralException("Customer doesn't exist yet");
+        cardService.createCard(cardDto);
+        return ResponseEntity.ok("Card created successfully");
     }
 
     @PutMapping("/update")
-    public ResponseEntity<String> updateCard(HttpServletRequest request, @RequestBody CardDto cardDto) {
-        log.info("Request: {} {} Body: {}", request.getMethod(), request.getRequestURI(), cardDto);
+    public ResponseEntity<String> updateCard(@RequestBody CardDto cardDto) {
         boolean customerExists = customerService.customerExistById(cardDto.customerId());
-        ResponseEntity<String> response;
-        if (customerExists) {
-            cardService.updateCard(cardDto);
-            response = ResponseEntity.ok("Card updated successfully");
-        } else response = ResponseEntity.badRequest().body("Customer doesn't exist yet");
-        log.info("Response: {}", response.getBody());
-        return response;
+        if (!customerExists) throw new GeneralException("Customer doesn't exist yet");
+        cardService.updateCard(cardDto);
+        return ResponseEntity.ok("Card updated successfully");
     }
 
     @PutMapping("/update/limit")
-    public ResponseEntity<String> updateCardLimit(HttpServletRequest request, @RequestBody CardLimitDto cardLimitDto) {
-        log.info("Request: {} {} Body: {}", request.getMethod(), request.getRequestURI(), cardLimitDto);
+    public ResponseEntity<String> updateCardLimit(@RequestBody CardLimitDto cardLimitDto) {
         boolean cardExists = cardService.cardExistById(cardLimitDto.cardId());
-        ResponseEntity<String> response;
-        if (cardExists) {
-            cardService.updateCardLimit(cardLimitDto);
-            response = ResponseEntity.ok("Card updated successfully");
-        } else response = ResponseEntity.badRequest().body("Card doesn't exist yet");
-        log.info("Response: {}", response.getBody());
-        return response;
+        if (!cardExists) throw new GeneralException("Card doesn't exist yet");
+        cardService.updateCardLimit(cardLimitDto);
+        return ResponseEntity.ok("Card updated successfully");
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> deleteCard(HttpServletRequest request, @PathVariable UUID id) {
-        log.info("Request: {} {}", request.getMethod(), request.getRequestURI());
+    public ResponseEntity<String> deleteCard(@PathVariable UUID id) {
         cardService.deleteCard(id);
-        ResponseEntity<String> response = ResponseEntity.ok("Card deleted successfully");
-        log.info("Response: {}", response.getBody());
-        return response;
+        return ResponseEntity.ok("Card deleted successfully");
     }
 
 }

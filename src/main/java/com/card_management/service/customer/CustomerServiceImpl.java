@@ -1,6 +1,7 @@
 package com.card_management.service.customer;
 
 import com.card_management.dto.customer.CustomerDto;
+import com.card_management.exception.GeneralException;
 import com.card_management.mapper.CustomerMapper;
 import com.card_management.model.customer.Customer;
 import com.card_management.repository.CustomerRepository;
@@ -13,7 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.ZonedDateTime;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @Slf4j
@@ -46,26 +46,23 @@ public class CustomerServiceImpl implements CustomerService{
         customerRepository.save(customer);
     }
 
-    //TODO: should have use ControllerAdvice for global exception handling
     @Transactional
     public void updateCustomer(CustomerDto dto) {
-        Optional<Customer> customerOpt = customerRepository.findById(dto.id());
-        if (customerOpt.isPresent()) {
-            Customer customer = customerOpt.get();
-            customer.setName(dto.name());
-            customer.setEmail(dto.email());
-            customer.setPhone(dto.phone());
-            //TODO: can improve use the current session username - need to implement Spring Security and token access
-            customer.setModifiedBy("system");
-            customer.setModifiedTime(ZonedDateTime.now());
-        }
+        Customer customer = customerRepository.findById(dto.id())
+                .orElseThrow(() -> new GeneralException("Customer doesn't exist"));
+        customer.setName(dto.name());
+        customer.setEmail(dto.email());
+        customer.setPhone(dto.phone());
+        //TODO: can improve use the current session username - need to implement Spring Security and token access
+        customer.setModifiedBy("system");
+        customer.setModifiedTime(ZonedDateTime.now());
     }
 
-    //TODO: should have use ControllerAdvice for global exception handling
     @Transactional
     public void deleteCustomer(UUID id) {
         if(customerRepository.existsById(id))
             customerRepository.deleteById(id);
+        else throw new GeneralException("Customer doesn't exist");
     }
 
 }
