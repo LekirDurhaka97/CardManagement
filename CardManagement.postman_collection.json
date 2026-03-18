@@ -152,7 +152,7 @@
       "name": "card",
       "item": [
         {
-          "name": "All Countries With Currencies",
+          "name": "get All Countries With Currencies",
           "request": {
             "method": "GET",
             "header": [
