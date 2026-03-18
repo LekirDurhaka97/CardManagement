@@ -5,6 +5,8 @@ This application is not fully tailored to perfection because the assessment requ
 ## Description
 This application is simple, created for Job Application Assessment(not fully cooked).
 
+Its using Java 21 with Springboot framework and Maven as the dependency manager.
+
 
 ## Db Setup
 I use docker desktop on windows run under WSL2. 
