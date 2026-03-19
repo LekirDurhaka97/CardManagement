@@ -13,7 +13,6 @@ import java.util.Map;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(GeneralException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<Map<String, Object>> handleGeneralException(GeneralException ex) {
         Map<String, Object> response = new HashMap<>();
         response.put("message", ex.getMessage());
@@ -22,7 +21,6 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(Exception.class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ResponseEntity<Map<String, Object>> handleException(Exception ex) {
         Map<String, Object> response = new HashMap<>();
         response.put("message", ex.getMessage());
